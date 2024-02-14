@@ -49,13 +49,13 @@ export default function Header({ color }) {
             {profile.headerName} <br />
             <Text as={"span"} color={`${color}.400`}>
               {profile.headerRole}
-            </Text>
+            </Text><br />
             <Text as={"span"} color={`${color}.400`}>
               {profile.headerRole1}
-            </Text>
+            </Text><br />
             <Text as={"span"} color={`${color}.400`}>
               {profile.headerRole2}
-            </Text>
+            </Text><br />
             <Text as={"span"} color={`${color}.400`}>
               {profile.headerRole3}
             </Text>
