@@ -1,29 +1,33 @@
-## Company 1
-- *Role* | Jan'23 - Feb'23
-- ![logo512](../assets/logo512.png)
-- Tags: Category 1
+## Singapore Armed Forces
+- Cyber Security Specialist | Jul'20 - Jul'22
+- ![logo512](../assets/saf.png)
+- Tags: Full Time Employment
 - Badges:
   - Badge [blue]
 - List Items:
-  - Point 1
-  - Point 2
+  - Compiled cyber threat intelligence feeds and synthesized into actionable intel for stakeholders 
+  - Performed intelligence disemination tasks
+  - Mantained intelligence capabilities in Security Operations Centre
 
-## Company 2
-- *Role* | Feb'23 - Mar'23
-- ![logo512](../assets/logo512.png)
-- Tags: Category 2
+## Ubisoft Singapore
+- QA Intern - Assasins Creed Odyssey [Legacy of the Bloodline]| Oct'18 - Feb'19
+- ![logo512](../assets/ubisoft.png)
+- Tags: Internship
 - Badges:
   - Badge [blue]
 - List Items:
-  - Point 1
-  - Point 2
+  - Conducted Daily Smoke Tests to ensure stability of build
+  - Assisted in playtesting assigned portions of Questline
+  - Reported crucial bugs
+  - Participated in resolution of bugs found
+  - Assisted in other ad-hoc tasks to support development
 
-## Company 3
-- *Role* | Mar'23 - Apr'23
+## Hammer Studio
+- Assistant Programmer | Jun'17
 - ![logo512](../assets/logo512.png)
-- Tags: Category 3
+- Tags: Freelance
 - Badges:
   - Badge [blue]
 - List Items:
-  - Point 1
-  - Point 2
+  - I assisted in the development of a portfolio application for the company using unity for Android mobile devices.
+  - Integrated 3D visualisation options into the application
