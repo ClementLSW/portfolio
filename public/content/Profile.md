@@ -1,19 +1,19 @@
 ## Site Name
-- Portable Portfolio
+- Clement Leow
 
 ## Header
-- Hi, my name is Eldora. 
-- I'm a software engineer.
-- Short Description Here.
+- Hi, my name is Clement. 
+- I'm a</br>Game Developer</br>UI/UX Designer</br>Graphic Designer.
+- I'm all about creating new experiences and enacting positive social change through the power of play!
 
 ## About
 Write your "About" section here.
 
 ## Contact
 Write your "Contact" section here.
-- LinkedIn: https://linkedin.com/in/username
-- GitHub: https://github.com/username
-- Email: username@gmail.com
+- LinkedIn: https://linkedin.com/in/clement-leow-04b744151
+- GitHub: https://github.com/ClementLSW
+- Email: Clementlsw@gmail.com
 
 ## Logo
-- EB
+- CLSW
