@@ -9,11 +9,12 @@
   - Mantained intelligence capabilities in Security Operations Centre
 
 ## Ubisoft Singapore
-- *QA Intern* - Assasins Creed Odyssey [Legacy of the Bloodline]| Oct'18 - Feb'19
+- *QA Intern* | Oct'18 - Feb'19
 - ![logo512](../assets/ubisoft.png)
 - Tags: Internships
 - Badges:
 - List Items:
+  - Worked on Assassin's Creed Odyssey - Legacy of the Bloodline
   - Conducted Daily Smoke Tests to ensure stability of build
   - Assisted in playtesting assigned portions of Questline
   - Reported crucial bugs
@@ -26,5 +27,5 @@
 - Tags: Freelance
 - Badges:
 - List Items:
-  - I assisted in the development of a portfolio application for the company using unity for Android mobile devices.
+  - Assisted in developing a portfolio application for the company using unity for Android.
   - Integrated 3D visualisation options into the application
