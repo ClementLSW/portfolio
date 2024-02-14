@@ -1,7 +1,7 @@
 ## Singapore Armed Forces
 - *Cyber Security Specialist* | Jul'20 - Jul'22
 - ![logo512](../assets/saf.png)
-- Tags: Full Time Employment
+- Tags: All, Full Time Employment
 - Badges:
 - List Items:
   - Compiled cyber threat intelligence feeds and synthesized into actionable intel for stakeholders 
@@ -11,7 +11,7 @@
 ## Ubisoft Singapore
 - *QA Intern* | Oct'18 - Feb'19
 - ![logo512](../assets/ubisoft.png)
-- Tags: Internships
+- Tags: All, Internships
 - Badges:
 - List Items:
   - Worked on Assassin's Creed Odyssey - Legacy of the Bloodline
@@ -24,7 +24,7 @@
 ## Hammer Studio
 - *Assistant Programmer* | Jun'17
 - ![logo512](../assets/logo512.png)
-- Tags: Freelance
+- Tags: All, Freelance
 - Badges:
 - List Items:
   - Assisted in developing a portfolio application for the company using unity for Android.
