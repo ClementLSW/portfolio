@@ -3,10 +3,10 @@
 
 ## Header
 - Hi, my name is Clement. 
-- I'm a
-- Game Developer
-- UI/UX Designer
-- Graphic Designer.
+- I'm a 
+- Game Developer 
+- UI/UX Designer 
+- Graphic Designer. 
 - I'm all about creating new experiences and enacting positive social change through the power of play!
 
 ## About
