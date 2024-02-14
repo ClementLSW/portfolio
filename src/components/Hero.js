@@ -50,6 +50,15 @@ export default function Header({ color }) {
             <Text as={"span"} color={`${color}.400`}>
               {profile.headerRole}
             </Text>
+            <Text as={"span"} color={`${color}.400`}>
+              {profile.headerRole1}
+            </Text>
+            <Text as={"span"} color={`${color}.400`}>
+              {profile.headerRole2}
+            </Text>
+            <Text as={"span"} color={`${color}.400`}>
+              {profile.headerRole3}
+            </Text>
           </Heading>
           <Text
             color={"gray.500"}
