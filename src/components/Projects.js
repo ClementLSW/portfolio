@@ -94,7 +94,7 @@ export default function Projects({ color }) {
               </Fade>
             ))}
           </Stack>
-          <!--
+          /*
           <Text color={"gray.600"} fontSize={"xl"} px={4}>
             Other Projects
           </Text>
@@ -164,7 +164,7 @@ export default function Projects({ color }) {
                 </Fade>
               ))}
           </SimpleGrid>
-          -->
+          -*/
         </Stack>
       </Container>
     </>
