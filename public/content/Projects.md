@@ -1,6 +1,6 @@
 ## Re-Respawn
 Created for Gamecraft 2023, hosted by NUS Game Development Group. In a game where Death is Temporary, Respawn your way to victory!
-- ![600x200](https://via.placeholder.com/600x200)
+- ![600x200](../assets/Rerespawn-final.png)
 - Tags: Game Jams
 - Badges:
   - Game Jams [red]
@@ -10,16 +10,16 @@ Created for Gamecraft 2023, hosted by NUS Game Development Group. In a game wher
 
 ## Divine Starchy Root Vegetables! We are attempting to leave the stratosphere!
 Created for Global Gamejam 2024, with a theme of "Make Me laugh". This is a simple collection of minigames, all contributing to the noble goal of yeeting a potato as far away as possible.
-- ![600x200](https://via.placeholder.com/600x200)
+- ![600x200](../assets/StarchyRootFinal.png)
 - Tags: Game Jams
 - Badges:
   - Game Jams [red]
 - Buttons:
-  - Link [https://example.com]
+  - Link [https://github.com/ClementLSW/GGJ24]
 
 ## Subterfuge
 This was a school assignment where we had to create an analog game for 4-6 players, with a playtime of 15 minutes. In Subterfuge, we will put on our tin foil hats and try to complete our hidden agendas, whilst sabotaging your opponents with conspiracies. The catch? you don't actually know what your opponents' goals are.
-- ![600x200](https://via.placeholder.com/600x200)
+- ![600x200](../assets/SubterfugeFinal.png)
 - Tags: School Projects
 - Badges:
   - School Projects [blue]
