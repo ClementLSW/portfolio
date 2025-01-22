@@ -14,13 +14,13 @@ import ProfileArray from "./ProfileArray";
 export default function Contact({ color }) {
   const profile = ProfileArray();
   const linkedin = () => {
-    window.open(`${profile.linkedin}`, "_blank", "noreferrer,noopener");
+    window.open(`https://linkedin.com/in/clement-leow-04b744151`, "_blank", "noreferrer,noopener");
   };
   const github = () => {
-    window.open(`${profile.github}`, "_blank", "noreferrer,noopener");
+    window.open(`https://github.com/ClementLSW`, "_blank", "noreferrer,noopener");
   };
   const email = () => {
-    window.open(`mailto:${profile.email}`, "_blank", "noreferrer,noopener");
+    window.open(`mailto:Clementlsw@gmail.com`, "_blank", "noreferrer,noopener");
   };
   return (
     <>
