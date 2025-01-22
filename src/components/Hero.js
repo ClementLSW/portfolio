@@ -19,7 +19,7 @@ export default function Header({ color }) {
   };
   const linkedin = () => {
     window.open(
-                `${profile.linkedin}`,
+                `https://linkedin.com/in/clement-leow-04b744151`,
                 "_blank",
                 "noreferrer,noopener"
               );
