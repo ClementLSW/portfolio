@@ -1,0 +1,32 @@
+---
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { name: 'GitHub', href: 'https://github.com/ClementLSW' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/clement-leow-04b744151' },
+  { name: 'itch.io', href: 'https://4ngrypanda.itch.io' },
+  { name: 'Email', href: 'mailto:Clementlsw@gmail.com' },
+];
+---
+
+<footer class="border-t border-default">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+      <div class="flex items-center gap-4 sm:gap-6">
+        {socialLinks.map(({ name, href }) => (
+          <a
+            href={href}
+            target={href.startsWith('mailto') ? undefined : '_blank'}
+            rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+            class="text-xs sm:text-sm text-muted hover:text-accent transition-colors"
+          >
+            {name}
+          </a>
+        ))}
+      </div>
+      <p class="text-xs sm:text-sm text-muted">
+        © {currentYear} Clement Leow
+      </p>
+    </div>
+  </div>
+</footer>

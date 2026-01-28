@@ -1,0 +1,190 @@
+---
+import '../styles/global.css';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 1);
+
+const featuredProjects = (await getCollection('projects', ({ data }) => !data.draft))
+  .filter(p => p.data.featured || p.data.status === 'released' || p.data.status === 'in-progress')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <BaseHead 
+      title="Clement Leow - Game Designer" 
+      description="Game designer & aspiring studio founder. Documenting the journey through devlogs and project showcases."
+    />
+  </head>
+  <body class="overflow-hidden">
+    <Header isHome={true} />
+    
+    <div id="scroll-container" class="snap-container">
+      <!-- HERO SECTION -->
+      <section id="hero" class="snap-section relative min-h-screen flex items-center justify-center overflow-hidden bg-surface">
+        <!-- Animated background blobs -->
+        <div class="absolute top-20 left-4 sm:left-16 w-24 sm:w-40 h-24 sm:h-40 rounded-full animate-float" 
+             style="background-color: var(--color-accent); filter: blur(80px); opacity: 0.15;"></div>
+        <div class="absolute bottom-32 right-4 sm:right-16 w-32 sm:w-56 h-32 sm:h-56 rounded-full animate-float-reverse" 
+             style="background-color: var(--color-accent); filter: blur(100px); opacity: 0.12;"></div>
+        <div class="absolute top-1/3 right-1/4 w-20 sm:w-32 h-20 sm:h-32 rounded-full animate-pulse-slow" 
+             style="background-color: var(--color-accent); filter: blur(60px); opacity: 0.1;"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <p class="text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-6 animate-fadeInUp text-accent"
+             style="letter-spacing: 0.2em;">
+            Game Designer & Aspiring Studio Founder
+          </p>
+          
+          <h1 class="text-5xl sm:text-7xl lg:text-9xl font-display mb-6 sm:mb-8 animate-fadeInUp delay-200 text-primary"
+              style="line-height: 0.95;">
+            HI, I'M <span class="text-accent">CLEMENT</span>
+          </h1>
+          
+          <p class="text-base sm:text-lg max-w-md sm:max-w-lg mx-auto mb-8 sm:mb-12 animate-fadeInUp delay-400 leading-relaxed px-4 text-secondary">
+            Creating experiences through the power of play. Documenting the journey here.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 animate-fadeInUp delay-500 px-4">
+            <a href="/blog" class="btn btn-primary">Read the Blog</a>
+            <a href="/projects" class="btn btn-secondary">View Projects</a>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <button id="scroll-indicator" class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fadeIn delay-700 cursor-pointer hover:scale-110 transition-transform">
+          <span class="text-xs uppercase tracking-widest text-muted" style="letter-spacing: 0.15em;">Scroll</span>
+          <div class="w-6 h-10 rounded-full border-2 border-default flex justify-center pt-2">
+            <div class="w-1.5 h-3 rounded-full animate-bounce" style="background-color: var(--color-accent);"></div>
+          </div>
+        </button>
+      </section>
+
+      <!-- LATEST POST SECTION -->
+      <section id="latest-post" class="snap-section min-h-screen flex flex-col justify-center py-12 sm:py-20 bg-surface-alt">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 w-full">
+          <div class="flex items-center justify-between mb-6 sm:mb-10">
+            <h2 class="text-2xl sm:text-3xl font-display text-primary">LATEST POST</h2>
+            <a href="/blog" class="text-sm text-accent hover:underline">View all →</a>
+          </div>
+          
+          {recentPosts.length > 0 ? (
+            <article class="card group cursor-pointer">
+              <a href={`/blog/${recentPosts[0].slug}`} class="flex flex-col md:flex-row">
+                <div class="md:w-2/5 aspect-video md:aspect-auto flex items-center justify-center text-4xl sm:text-6xl transition-transform duration-500 group-hover:scale-105 bg-surface-muted"
+                     style="min-height: 200px;">
+                  {recentPosts[0].data.coverImage ? (
+                    <img src={recentPosts[0].data.coverImage} alt="" class="w-full h-full object-cover" />
+                  ) : (
+                    <span>📝</span>
+                  )}
+                </div>
+                <div class="md:w-3/5 p-5 sm:p-8 md:p-12 flex flex-col justify-center">
+                  <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <span class="text-xs sm:text-sm text-muted">
+                      {recentPosts[0].data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    </span>
+                  </div>
+                  <h3 class="text-xl sm:text-3xl md:text-4xl font-display mb-3 sm:mb-5 text-primary group-hover:text-accent transition-colors">
+                    {recentPosts[0].data.title.toUpperCase()}
+                  </h3>
+                  <p class="text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 text-secondary">
+                    {recentPosts[0].data.description}
+                  </p>
+                  {recentPosts[0].data.tags && (
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                      {recentPosts[0].data.tags.slice(0, 3).map((tag: string) => (
+                        <span class="text-xs sm:text-sm text-accent">#{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </a>
+            </article>
+          ) : (
+            <div class="card p-8 text-center">
+              <p class="text-secondary">No posts yet. Check back soon!</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECTS SECTION -->
+      <section id="featured-projects" class="snap-section min-h-screen flex flex-col justify-center py-12 sm:py-20 bg-surface">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 w-full">
+          <div class="flex items-center justify-between mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl font-display text-primary">FEATURED PROJECTS</h2>
+            <a href="/projects" class="text-sm text-accent hover:underline">View all →</a>
+          </div>
+          
+          <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                status={project.data.status}
+                slug={project.slug}
+                coverImage={project.data.coverImage}
+                event={project.data.event}
+                role={project.data.role}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA + FOOTER SECTION -->
+      <section id="cta" class="snap-section min-h-screen flex flex-col bg-surface">
+        <div class="flex-1 flex items-center px-4 sm:px-6">
+          <div class="max-w-5xl mx-auto w-full py-12">
+            <div class="card p-8 sm:p-12 md:p-16 text-center bg-surface-alt">
+              <h2 class="text-3xl sm:text-4xl font-display mb-4 sm:mb-5 text-primary">LET'S CONNECT</h2>
+              <p class="mb-6 sm:mb-10 max-w-md mx-auto leading-relaxed text-sm sm:text-base text-secondary">
+                Looking for collaborators, conversations about games, or producer/designer opportunities.
+              </p>
+              <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                <a href="https://linkedin.com/in/clement-leow-04b744151" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  Connect on LinkedIn
+                </a>
+                <a href="mailto:Clementlsw@gmail.com" class="btn btn-secondary">
+                  Send an Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <Footer />
+      </section>
+    </div>
+
+    <script>
+      // Scroll indicator click
+      document.getElementById('scroll-indicator')?.addEventListener('click', () => {
+        document.getElementById('latest-post')?.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Header visibility on scroll
+      const container = document.getElementById('scroll-container');
+      container?.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (header) {
+          if (container.scrollTop > 50) {
+            header.classList.add('header-scrolled');
+          } else {
+            header.classList.remove('header-scrolled');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

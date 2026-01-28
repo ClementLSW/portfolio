@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const allTags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
+---
+
+<BaseLayout 
+  title="Blog" 
+  description="Devlogs, learnings, and thoughts on game design, development, and the journey to starting a studio."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <header class="mb-8 sm:mb-10">
+      <h1 class="text-4xl sm:text-5xl font-display text-primary mb-4">BLOG</h1>
+      <p class="text-sm sm:text-base text-secondary">
+        Devlogs, learnings, and thoughts on game design.
+      </p>
+    </header>
+
+    {allTags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-8 sm:mb-10">
+        <a href="/blog" class="badge badge-accent">All posts</a>
+        {allTags.map((tag) => (
+          <a 
+            href={`/blog/tag/${tag}`}
+            class="badge bg-surface-alt text-secondary hover:text-accent transition-colors"
+          >
+            #{tag}
+          </a>
+        ))}
+      </div>
+    )}
+
+    {posts.length > 0 ? (
+      <div class="space-y-4 sm:space-y-6">
+        {posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.slug}
+            tags={post.data.tags}
+            coverImage={post.data.coverImage}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="card p-8 text-center">
+        <p class="text-secondary mb-4">No posts yet. Check back soon!</p>
+        <a href="/" class="text-accent hover:underline">← Back home</a>
+      </div>
+    )}
+  </div>
+</BaseLayout>
