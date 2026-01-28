@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/resume"
+  to = "/resume.pdf"
+  status = 200
+
+# Pretty URLs
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404

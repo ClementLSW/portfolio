@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Now" 
+  description="What I'm currently focused on."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <h1 class="text-4xl sm:text-5xl font-display text-primary mb-2">NOW</h1>
+    <p class="text-xs sm:text-sm text-muted mb-8 sm:mb-10">Last updated: January 2026</p>
+    
+    <div class="space-y-4 sm:space-y-6 leading-relaxed text-sm sm:text-base text-secondary">
+      <p class="text-lg sm:text-xl text-primary">
+        A snapshot of what I'm currently focused on.
+      </p>
+
+      <h2 class="text-xl sm:text-2xl font-display text-primary mt-8 sm:mt-12 mb-4">🎮 CURRENTLY MAKING</h2>
+      <p>
+        <strong class="text-primary">Global Game Jam Singapore 2026</strong> — A boss rush game where pinball 
+        meets roguelike mechanics.
+        <br></br>
+        <i>Currently opening 32 issues on GitHub.</i>
+      </p>
+
+      <h2 class="text-xl sm:text-2xl font-display text-primary mt-8 sm:mt-12 mb-4">🕹️ CURRENTLY PLAYING</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="text-accent">→</span>Where Winds Meet</li>
+        <!--<li class="flex gap-3"><span class="text-accent">→</span>UFO 50</li>-->
+        <li class="flex gap-3"><span class="text-accent">→</span>Various indie roguelikes for "research"</li>
+      </ul>
+
+      <h2 class="text-xl sm:text-2xl font-display text-primary mt-8 sm:mt-12 mb-4">💭 CURRENTLY THINKING ABOUT</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="text-accent">→</span>How to integrate Agentic AI into games</li>
+        <li class="flex gap-3"><span class="text-accent">→</span>The producer vs. designer career path in games</li>
+        <li class="flex gap-3"><span class="text-accent">→</span>How to start a studio without going bankrupt</li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

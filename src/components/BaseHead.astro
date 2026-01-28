@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { 
+  title, 
+  description, 
+  image = '/images/og-default.png',
+  type = 'website' 
+} = Astro.props;
+
+const fullTitle = title === 'Home' ? 'Clement Leow' : `${title} | Clement Leow`;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="author" content="Clement Leow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="Clement Leow's Blog" href="/rss.xml" />
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#14b8a6" />

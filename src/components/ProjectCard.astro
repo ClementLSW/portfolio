@@ -1,0 +1,56 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  status: 'released' | 'in-progress' | 'prototype' | 'archived';
+  slug: string;
+  coverImage?: string;
+  event?: string;
+  role: string;
+}
+
+const { title, description, status, slug, coverImage, event, role } = Astro.props;
+
+const statusConfig = {
+  'released': { label: 'Released', class: 'badge-released' },
+  'in-progress': { label: 'In Progress', class: 'badge-in-progress' },
+  'prototype': { label: 'Prototype', class: 'badge-accent' },
+  'archived': { label: 'Archived', class: 'badge-accent' },
+};
+---
+
+<article class="card group cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+  <a href={`/projects/${slug}`} class="block">
+    <div class="aspect-video overflow-hidden flex items-center justify-center text-3xl sm:text-4xl bg-surface-muted">
+      {coverImage ? (
+        <img 
+          src={coverImage} 
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        />
+      ) : (
+        <span class="group-hover:scale-110 transition-transform duration-300">🎮</span>
+      )}
+    </div>
+    <div class="p-4 sm:p-5">
+      <div class="flex items-center gap-2 mb-2 sm:mb-3 flex-wrap">
+        <span class={`badge ${statusConfig[status].class}`}>
+          {statusConfig[status].label}
+        </span>
+        {event && (
+          <span class="badge badge-accent">{event}</span>
+        )}
+      </div>
+      <h3 class="text-base sm:text-lg font-display text-primary group-hover:text-accent transition-colors mb-2">
+        {title.toUpperCase()}
+      </h3>
+      <p class="text-xs sm:text-sm leading-relaxed text-secondary line-clamp-2 mb-2">
+        {description}
+      </p>
+      <p class="text-xs text-muted">
+        {role}
+      </p>
+    </div>
+  </a>
+</article>

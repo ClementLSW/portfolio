@@ -1,135 +1,92 @@
-![hero](example/hero.png)
+# Clement Leow — Portfolio & Blog
 
-# Portfolio using React.js and Chakra UI
+Personal portfolio and devlog built with [Astro](https://astro.build).
 
-This portfolio is built using React.js and Chakra UI. It allows you to quickly create and customize your portfolio website using markdown files.
+## 🚀 Quick Start
 
-|    ![experience](example/Experience.gif)    | ![projects](example/Projects.gif) |
-| :-----------------------------------------: | :-------------------------------: |
-|       Document your work experiences        |    Showcase your best projects    |
-| ![otherprojects](example/OtherProjects.gif) |   ![mobile](example/Mobile.gif)   |
-|        Include your smaller projects        |     Mobile-responsive design      |
-
-## Getting Started
-
-To get started with development, you can use the following commands:
-
-```
+```bash
 # Install dependencies
-yarn install
+npm install
 
-# Start the development server
-yarn start
+# Start dev server
+npm run dev
 
-# Build the static files
-yarn build
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-After running `yarn start`, your website should be available at `http://localhost:3000`.
-
-## Site Name
-
-To edit the site name, go to `public/index.html` and change the `<title>`
+## 📁 Project Structure
 
 ```
-<title>Site Name</title>
+/
+├── public/
+│   ├── images/          # Static images
+│   └── favicon.svg
+├── src/
+│   ├── components/      # Reusable components
+│   ├── content/
+│   │   ├── blog/        # Blog posts (MDX)
+│   │   └── projects/    # Project case studies (MDX)
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Route pages
+│   └── styles/          # Global styles
+├── astro.config.mjs
+├── tailwind.config.mjs
+└── package.json
 ```
 
-## Editing Content
+## ✍️ Adding Content
 
-To edit the content on your website, refer to the markdown files located in the `public/content` folder.
+### New Blog Post
 
-### Profile.md
+Create a new `.mdx` file in `src/content/blog/`:
 
-```
-## Header
-- Hi, my name is ______.
-- I'm a ______.
-- Short Description Here.
+```mdx
+---
+title: "Post Title"
+description: "Brief description"
+date: 2026-01-28
+tags: [devlog, unity]
+draft: false
+---
 
-## About
-Write your "About" section here.
-
-## Contact
-Write your "Contact" section here.
-- LinkedIn: https://linkedin.com/in/username
-- GitHub: https://github.com/username
-- Email: username@gmail.com
-
-## Logo
-- EB
+Your content here...
 ```
 
-### ExperienceTags.md and ProjectsTags.md
+### New Project
 
-```
-Category 1
-Category 2
-Category 3
-```
+Create a new `.mdx` file in `src/content/projects/`:
 
-### Experience.md
+```mdx
+---
+title: "Project Name"
+description: "Brief description"
+status: released  # released | in-progress | prototype | archived
+date: 2026-01-28
+tags: [unity, game-jam]
+role: "Designer & Programmer"
+coverImage: "/images/projects/your-image.png"
+links:
+  itch: "https://..."
+  github: "https://..."
+---
 
-To edit your work experience, update the `Experience.md` file with the following format:
-
-```
-## Company Name
-- *Role* | Period
-- ![image_name](../assets/image_name.png)
-- Tags: Work
-- Badges:
-  - BadgeContent [badge_colour]
-- List Items:
-  - Point 1
-  - Point 2
+Project details here...
 ```
 
-### Projects.md
+## 🎨 Customization
 
-To edit your projects, update the `Projects.md` file with the following format:
+- **Colors**: Edit `tailwind.config.mjs`
+- **Fonts**: Update imports in `src/styles/global.css`
+- **Layout**: Modify files in `src/layouts/`
 
-```
-## Project Name
-Description
-- ![image_name](../assets/image_name.png)
-- Tags: WebDev
-- Badges:
-  - BadgeContent [badge_colour]
-- Buttons:
-  - ButtonContent [button_link]
-```
+## 📦 Deployment
 
-### OtherProjects.md
+This site auto-deploys to Netlify on push to `main`. Build settings are in `netlify.toml`.
 
-To edit other projects or items, update the `OtherProjects.md` file with the following format:
+## 📄 License
 
-```
-## Project Name
-Description
-- Tags: WebDev
-- Badges:
-  - BadgeContent [badge_colour]
-- Buttons:
-  - ButtonContent [button_link]
-```
-
-## Colour Theme
-
-You can choose from 10 different colours provided by Chakra UI. Modify the `color` variable in the `App.js` file located in the `src` folder.
-
-```
-// Available Colours:
-// blue, cyan, gray, green, orange, pink, purple, red, teal, yellow
-
-const color = "pink";
-```
-
-## Customizing Design
-
-You can customize the design of your website by modifying the `theme.js` file located in the `src` folder. Refer to the Chakra UI documentation for more information on how to customize your theme.
-
-## Usage
-
-You may use this template for your own portfolio as long as you give me proper credit by linking back to my profile.
-
-For more details on hosting this site, you may refer to [A Step-by-Step Guide: Deploying on Netlify](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+Content © Clement Leow. Code is MIT.

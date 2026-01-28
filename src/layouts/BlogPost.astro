@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & {
+  readingTime?: string;
+};
+
+const { title, description, date, updatedDate, tags, coverImage, readingTime } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={coverImage} type="article">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 mb-4">
+        <FormattedDate date={date} />
+        {readingTime && (
+          <>
+            <span>·</span>
+            <span>{readingTime}</span>
+          </>
+        )}
+        {updatedDate && (
+          <>
+            <span>·</span>
+            <span>Updated <FormattedDate date={updatedDate} /></span>
+          </>
+        )}
+      </div>
+      
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+        {title}
+      </h1>
+      
+      <p class="text-lg text-zinc-600 dark:text-zinc-400">
+        {description}
+      </p>
+      
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-6">
+          {tags.map((tag) => (
+            <a 
+              href={`/blog/tag/${tag}`}
+              class="badge badge-secondary hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Cover Image -->
+    {coverImage && (
+      <img 
+        src={coverImage} 
+        alt="" 
+        class="w-full rounded-xl mb-10 border border-zinc-200 dark:border-zinc-800"
+      />
+    )}
+
+    <!-- Content -->
+    <div class="prose prose-zinc dark:prose-invert prose-lg max-w-none">
+      <slot />
+    </div>
+
+    <!-- Back link -->
+    <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+      <a href="/blog" class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:underline">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to all posts
+      </a>
+    </div>
+  </article>
+</BaseLayout>
