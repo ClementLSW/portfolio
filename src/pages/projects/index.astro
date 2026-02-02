@@ -8,6 +8,8 @@ const inProgress = allProjects.filter(p => p.data.status === 'in-progress')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const released = allProjects.filter(p => p.data.status === 'released')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const prototype = allProjects.filter(p => p.data.status === 'prototype')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout 
@@ -43,13 +45,35 @@ const released = allProjects.filter(p => p.data.status === 'released')
     )}
 
     {released.length > 0 && (
-      <section>
+      <section class="mb-10 sm:mb-14">
         <h2 class="text-lg sm:text-xl font-display text-primary mb-4 sm:mb-6 flex items-center gap-3">
           <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-emerald-500"></span>
           RELEASED
         </h2>
         <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {released.map((project) => (
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              status={project.data.status}
+              slug={project.slug}
+              coverImage={project.data.coverImage}
+              event={project.data.event}
+              role={project.data.role}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {prototype.length > 0 && (
+      <section>
+        <h2 class="text-lg sm:text-xl font-display text-primary mb-4 sm:mb-6 flex items-center gap-3">
+          <span class="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-amber-500"></span>
+          PROTOTYPES
+        </h2>
+        <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {prototype.map((project) => (
             <ProjectCard
               title={project.data.title}
               description={project.data.description}
