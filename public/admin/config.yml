@@ -2,6 +2,7 @@ backend:
   name: github
   repo: ClementLSW/portfolio
   branch: main
+  site_domain: magenta-tulumba-f45298.netlify.app
 
 local_backend: true
 
