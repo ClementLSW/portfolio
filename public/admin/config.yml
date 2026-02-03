@@ -40,6 +40,7 @@ collections:
       - { name: description, label: Description, widget: string }
       - { name: date, label: Date, widget: datetime }
       - { name: status, label: Status, widget: select, options: ["released", "in-progress", "prototype", "archived"] }
+      - { name: featured, label: Featured, widget: boolean, default: false }
       - { name: event, label: Event, widget: string, required: false }
       - { name: role, label: Role, widget: string }
       - { name: coverImage, label: Cover Image, widget: image, required: false }
