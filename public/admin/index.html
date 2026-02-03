@@ -6,6 +6,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <style>
+        [data-slate-editor] {
+            -webkit-user-modify: read-write !important;
+        }
+
+        body {
+            background: #1a1918 !important;
+        }
+
+        [class*="AppMainContainer"] {
+            background: #1a1918 !important;
+        }
+
+        [class*="SidebarNavList"],
+        [class*="SidebarContainer"] {
+            background: #242220 !important;
+        }
+
+        [class*="SidebarNavLink"] {
+            color: #a8a29e !important;
+        }
+
+        [class*="SidebarNavLink"]:hover,
+        [class*="SidebarNavLink"][class*="active"] {
+            color: #f0a589 !important;
+            background: rgba(240, 165, 137, 0.1) !important;
+        }
+
+        [class*="AppHeader"] {
+            background: #242220 !important;
+            border-bottom: 1px solid #3d3835 !important;
+        }
+
+        [class*="Card"],
+        [class*="ListCard"],
+        [class*="EntryCard"] {
+            background: #2a2725 !important;
+            border-color: #3d3835 !important;
+            color: #e8e4df !important;
+        }
+
+        [class*="ListCard"]:hover {
+            background: #353230 !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        [class*="title"],
+        [class*="Title"],
+        [class*="Label"] {
+            color: #e8e4df !important;
+        }
+
+        p,
+        span,
+        label,
+        [class*="description"] {
+            color: #a8a29e !important;
+        }
+
+        input,
+        textarea,
+        select {
+            background: #2a2725 !important;
+            border-color: #3d3835 !important;
+            color: #e8e4df !important;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #f0a589 !important;
+            outline: none !important;
+        }
+
+        [class*="ControlPane"],
+        [class*="EditorControlBar"],
+        [class*="EditorContainer"] {
+            background: #1a1918 !important;
+        }
+
+        [class*="EditorControl"] {
+            background: #2a2725 !important;
+            border-color: #3d3835 !important;
+        }
+
+        [class*="Toolbar"] {
+            background: #242220 !important;
+            border-color: #3d3835 !important;
+        }
+
+        [class*="ToolbarButton"] {
+            color: #a8a29e !important;
+        }
+
+        [class*="ToolbarButton"]:hover {
+            color: #f0a589 !important;
+            background: rgba(240, 165, 137, 0.1) !important;
+        }
+
+        [class*="Button"][class*="primary"],
+        button[class*="primary"] {
+            background: #e07850 !important;
+            color: #1a1918 !important;
+            border: none !important;
+        }
+
+        [class*="Button"][class*="primary"]:hover {
+            background: #f0a589 !important;
+        }
+
+        [class*="MenuList"],
+        [class*="Dropdown"] {
+            background: #2a2725 !important;
+            border-color: #3d3835 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +162,7 @@
                             tags.map((tag, i) => h('span', { key: i, className: 'badge' }, '#' + tag))
                         )
                     ),
-                    imageUrl && h('img', {src: imageUrl, style: {width: '100%', borderRadius: '0.75rem', marginBottom: '1.5rem'}}),
+                    imageUrl && h('img', { src: imageUrl, style: { width: '100%', borderRadius: '0.75rem', marginBottom: '1.5rem' } }),
                     h('div', {}, this.props.widgetFor('body'))
                 );
             }
