@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: ClementLSW/portfolio
+  name: git-gateway
+  #repo: ClementLSW/portfolio
   branch: main
   site_domain: magenta-tulumba-f45298.netlify.app
 
