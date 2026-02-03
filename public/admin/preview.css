@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --color-bg: #1a1918;
+  --color-bg-alt: #242220;
+  --color-bg-card: #2a2725;
+  --color-text-primary: #e8e4df;
+  --color-text-secondary: #a8a29e;
+  --color-text-muted: #78716c;
+  --color-accent: #f0a589;
+  --color-border: #3d3835;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  padding: 2rem;
+  line-height: 1.6;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  margin: 1rem 0;
+}
+
+ul, ol {
+  color: var(--color-text-secondary);
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+code {
+  background: var(--color-bg-alt);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--color-bg-alt);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+/* Preview header styles */
+.preview-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.preview-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.preview-meta {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.preview-description {
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  background: rgba(240, 165, 137, 0.15);
+  color: var(--color-accent);
+}

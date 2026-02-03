@@ -1,0 +1,15 @@
+# robots.txt - boilerplate
+# Replace example.com with your site's domain
+
+User-agent: *
+Disallow:
+/admin/
+
+# Optional: set crawl delay (seconds)
+# Crawl-delay: 10
+
+# Add your sitemap URL
+Sitemap: https://www.example.com/sitemap.xml
+
+# Optional non-standard host directive
+# Host: www.example.com

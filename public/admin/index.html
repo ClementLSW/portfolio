@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Manager</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        // Register preview styles
+        CMS.registerPreviewStyle("/admin/preview.css");
+
+        // Custom image widget that prepends site url
+        const defined = (val) => val !== undefined && val !== null;
+
+        // Blog post preview template
+        const BlogPreview = createClass({
+            render: function () {
+                const entry = this.props.entry;
+                const title = entry.getIn(['data', 'title']) || 'Untitled';
+                const description = entry.getIn(['data', 'description']) || '';
+                const date = entry.getIn(['data', 'date']);
+                const tags = entry.getIn(['data', 'tags']);
+                const coverImage = entry.getIn(['data', 'cover_image']);
+
+                const imageUrl = coverImage && coverImage.startsWith('/')
+                    ? SITE_URL + coverImage
+                    : coverImage;
+
+                return h('div', {},
+                    h('div', { className: 'preview-header' },
+                        h('h1', { className: 'preview-title' }, title.toUpperCase()),
+                        h('p', { className: 'preview-meta' }, date ? new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''),
+                        h('p', { className: 'preview-description' }, description),
+                        tags && h('div', { style: { marginTop: '1rem' } },
+                            tags.map((tag, i) => h('span', { key: i, className: 'badge' }, '#' + tag))
+                        )
+                    ),
+                    imageUrl && h('img', {src: imageUrl, style: {width: '100%', borderRadius: '0.75rem', marginBottom: '1.5rem'}}),
+                    h('div', {}, this.props.widgetFor('body'))
+                );
+            }
+        });
+
+        // Project preview template  
+        const ProjectPreview = createClass({
+            render: function () {
+                const entry = this.props.entry;
+                const title = entry.getIn(['data', 'title']) || 'Untitled';
+                const description = entry.getIn(['data', 'description']) || '';
+                const status = entry.getIn(['data', 'status']) || '';
+                const event = entry.getIn(['data', 'event']);
+                const role = entry.getIn(['data', 'role']);
+                const coverImage = entry.getIn(['data', 'cover_image']);
+
+                // Fix image URL
+                const imageUrl = coverImage && coverImage.startsWith('/')
+                    ? SITE_URL + coverImage
+                    : coverImage;
+
+                return h('div', {},
+                    h('div', { className: 'preview-header' },
+                        h('div', { style: { marginBottom: '0.5rem' } },
+                            h('span', { className: 'badge' }, status),
+                            event && h('span', { className: 'badge' }, event)
+                        ),
+                        h('h1', { className: 'preview-title' }, title.toUpperCase()),
+                        h('p', { className: 'preview-description' }, description),
+                        role && h('p', { className: 'preview-meta' }, role)
+                    ),
+                    imageUrl && h('p', { src: imageUrl, style: { width: '100%', borderRadius: '0.75rem', marginBottom: '1.5rem' } }),
+                    h('div', {}, this.props.widgetFor('body'))
+                );
+            }
+        });
+
+        CMS.registerPreviewTemplate('blog', BlogPreview);
+        CMS.registerPreviewTemplate('projects', ProjectPreview);
+    </script>
+</body>
+
+</html>
