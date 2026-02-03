@@ -16,6 +16,18 @@ const { title, description, image, type } = Astro.props;
 
 <!doctype html>
 <html lang="en" class="dark">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Clement Leow",
+    "url": "https://clementlsw.com",
+    "jobTitle": "Game Designer & Developer",
+    "sameAs": [
+      "https://github.com/ClementLSW",
+      "https://linkedin.com/in/clement-leow-04b744151",
+      "https://4ngrypanda.itch.io"
+    ]
+  })} />
   <head>
     <BaseHead title={title} description={description} image={image} type={type} />
   </head>

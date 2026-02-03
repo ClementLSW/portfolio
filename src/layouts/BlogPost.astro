@@ -11,6 +11,17 @@ const { title, description, date, updatedDate, tags, coverImage, readingTime } =
 ---
 
 <BaseLayout title={title} description={description} image={coverImage} type="article">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "datePublished": date.toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": "Clement Leow"
+    }
+  })} />
   <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Header -->
     <header class="mb-10">

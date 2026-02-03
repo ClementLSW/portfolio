@@ -16,6 +16,18 @@ const statusConfig = {
 ---
 
 <BaseLayout title={title} description={description} image={coverImage}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": title,
+    "description": description,
+    "dateCreated": date.toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": "Clement Leow"
+    },
+    "genre": "Indie Game"
+  })} />
   <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <!-- Header -->
     <header class="mb-10">
