@@ -150,6 +150,7 @@
 .delay-700 { animation-delay: 0.7s; }
 
 /* Scroll snap */
+/* Scroll snap - desktop only */
 .snap-container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
@@ -158,42 +159,20 @@
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  overscroll-behavior: contain; /* Prevents pull-to-refresh interference */
-  -webkit-overflow-scrolling: touch; /* Smooth momentum on iOS */
 }
 
 .snap-container::-webkit-scrollbar {
-  display: none;
+  width: 0px;
+  background: transparent;
 }
 
 .snap-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  min-height: 100vh;
-  min-height: 100dvh;
 }
 
-/* Mobile fixes */
-@media (max-width: 640px) {
-  .snap-container {
-    scroll-snap-type: y proximity; /* Softer snapping */
-  }
-  
-  .snap-section {
-    scroll-snap-stop: normal; /* Allow momentum to pass through sections */
-    min-height: auto; /* Let content determine height */
-    padding-bottom: 2rem; /* Space between sections */
-  }
-  
-  /* First section (hero) stays full height */
-  .snap-section:first-child {
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
-}
-
-/* Very small screens - disable snap entirely */
-@media (max-width: 480px) {
+/* Disable snap on mobile */
+@media (max-width: 768px) {
   .snap-container {
     scroll-snap-type: none;
     height: auto;
