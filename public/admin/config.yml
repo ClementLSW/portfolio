@@ -39,9 +39,20 @@ collections:
       - { name: date, label: Date, widget: datetime }
       - { name: status, label: Status, widget: select, options: ["released", "in-progress", "prototype", "archived"] }
       - { name: featured, label: Featured, widget: boolean, default: false }
+      - { name: tags, label: Tags, widget: list, required: false }
       - { name: event, label: Event, widget: string, required: false }
+      - { name: team, label: Team, widget: list, required: false }
       - { name: role, label: Role, widget: string }
       - { name: coverImage, label: Cover Image, widget: image, required: false }
+      - name: links
+        label: Links
+        widget: object
+        required: false
+        fields:
+          - { name: itch, label: itch.io, widget: string, required: false }
+          - { name: github, label: GitHub, widget: string, required: false }
+          - { name: play, label: Play (Games), widget: string, required: false }
+          - { name: demo, label: Try It (Non-Games), widget: string, required: false }
       - { name: draft, label: Draft, widget: boolean, default: false }
       - { name: body, label: Body, widget: markdown }
 

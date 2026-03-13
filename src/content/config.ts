@@ -30,6 +30,7 @@ const projects = defineCollection({
       itch: z.string().optional(),
       github: z.string().optional(),
       play: z.string().optional(),
+      demo: z.string().optional(),
       other: z.array(z.object({
         label: z.string(),
         url: z.string(),
