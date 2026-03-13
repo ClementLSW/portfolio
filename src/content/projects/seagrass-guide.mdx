@@ -1,0 +1,67 @@
+---
+title: Seagrass Guide
+description: A mobile-first PWA that turns tourists into citizen scientists —
+  guiding them to Singapore's hidden seagrass meadows through GPS-powered
+  discovery, a narrated XR walkthrough, and conservation action prompts. Built
+  aboard the OceanXplorer.
+date: 2026-03-13T18:51:00.000+08:00
+status: prototype
+featured: false
+event: OceanX Education Hackathon
+role: Clement, Yun Jing, JJ
+coverImage: https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg/r%5Bwidth%5D=1920/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg
+draft: false
+---
+## The Challenge
+ 
+The OceanX Education Hackathon brought creatives, scientists, and technologists aboard the OceanXplorer — an 87-metre research vessel docked at Marina at Keppel Bay — to reimagine how ocean science reaches the public. Our track was **Traveller Activation: From Curiosity to Conservation**.
+ 
+The prompt: Sentosa gets 19 million visitors a year. On the Tanjung Rimau rocky shore, just below Fort Siloso and a short walk from the Siloso Point cable car station, seagrass meadows are quietly growing. Almost nobody knows they're there.
+ 
+How do you close the gap between a tourist's idle curiosity and meaningful conservation action?
+ 
+## The Solution
+ 
+SeaGrass Guide is a three-screen PWA designed around a single progression: **Discover → Learn → Act**.
+ 
+**Discover** — A full-screen map centred on the user's real GPS position, showing seagrass sites across Singapore's southern islands. Each site pulls live weather from Open-Meteo, tidal windows from NParks data, and citizen science observation counts from iNaturalist. Standing on the OceanXplorer during the demo, the app correctly showed the Sentosa Siloso meadow as ~800m south.
+ 
+**Learn** — The core experience. A narrated XR walkthrough of the Sentosa Fort Siloso seagrass shore, with a mini-map tracking progress along the coastal trail. As the route advances, geo-triggered educational plaques animate in — frosted glass cards covering what seagrass is, why it matters (up to 35× more carbon capture than rainforests per unit area), and how it survived Sentosa's coastal reclamation. Seven zones, each with its own narrative beat.
+ 
+**Act** — After two minutes of learning about an ecosystem they didn't know existed, users can log a sighting via the phone's camera with automatic GPS tagging, donate to restoration, sign up for volunteer monitoring, or share a badge. The conversion flow is deliberate — we earn the ask by making you care first.
+ 
+## My Role
+ 
+I led design and development — wrote the CLAUDE.md spec that defined the screen architecture, data structures, API integrations, and design direction, then used Claude Code to build the full app in a single session. I also designed the plaque pacing and narrative arc, drawing on game design principles: each zone is a level beat, progressing from wonder to knowledge to threat to agency.
+ 
+Yun Jing and JJ contributed to the conservation narrative, research, and presentation.
+ 
+## Tech Stack
+ 
+- React 18 + Vite
+- Tailwind CSS
+- Leaflet + OpenStreetMap (zero API keys)
+- Framer Motion (plaque animations)
+- Browser Geolocation API (real GPS)
+- getUserMedia (camera capture for sightings)
+- Open-Meteo (weather + marine data)
+- NParks tide data (static, for tidal predictions)
+- iNaturalist API (citizen science observation counts)
+- Deployed on Netlify
+ 
+## What I Learned
+ 
+**Seagrass matters more than I knew.** Singapore has 12 species of seagrass despite being one of the most urbanised coastlines on Earth. Seagrass covers just 0.1% of the ocean floor but stores up to 18% of all carbon buried in ocean sediments. I went in expecting a standard hackathon. I left genuinely caring about marine conservation.
+ 
+**A good spec is the best prompt.** The CLAUDE.md file — part brief, part architecture doc, part prompt — became the single source of truth for the entire build. Fifteen commits from first scaffold to production deploy, all in one day. For a time-boxed event, this approach was the difference between presenting a working product and presenting slides.
+ 
+**Game design is experience design.** The Discover → Learn → Act flow is a player journey. The plaques are a progression system. The pacing from wonder through threat to agency is narrative design. Training at DigiPen keeps showing up in unexpected places.
+ 
+## Result
+ 
+Runner-up. The judges told us personally that deliberation ran long — some were advocating for our project to win. Being a contested second felt like its own validation.
+ 
+<!-- ## Gallery -->
+<!-- ![Presenting aboard the OceanXplorer](/images/projects/seagrass-guide/presenting.jpg) -->
+<!-- ![The Discover screen showing real GPS proximity](/images/projects/seagrass-guide/discover.jpg) -->
+<!-- ![Learn screen with geo-triggered plaque](/images/projects/seagrass-guide/learn.jpg) -->

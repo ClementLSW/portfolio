@@ -1,0 +1,91 @@
+---
+title: SeaGrass Guide — Building a Conservation App in One Day Aboard the OceanXplorer
+description: How our team built a mobile-first PWA to turn tourists into citizen
+  scientists at the OceanX Education Hackathon in Singapore
+date: 2026-03-13T16:12:00.000+08:00
+tags:
+  - Hackathon
+  - OceanX
+  - SeaGrass
+coverImage: https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg/r%5Bwidth%5D=1920/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg
+draft: false
+---
+# SeaGrass Guide — Building a Conservation App in One Day Aboard the OceanXplorer
+
+Last week I boarded the OceanXplorer — a 87-metre research vessel docked at Marina at Keppel Bay — for the OceanX Education Hackathon. The hackathon brings together creatives, scientists, and technologists to reimagine how ocean science reaches the public.
+
+Our track, **Traveller Activation: From Curiosity to Conservation**, asked a pointed question: *How do you turn 19 million annual Sentosa visitors into people who care about the seagrass meadow hidden beneath their feet?*
+
+I went in expecting a standard hackathon. I left caring deeply about seagrass.
+
+## The Problem
+
+Singapore has 12 species of seagrass — remarkable for one of the most urbanised coastlines on Earth. At Sentosa alone, clumps of Tape seagrass, Sickle seagrass, and Spoon seagrass cling to the rocky shore beside Fort Siloso, a short walk from the Siloso Point cable car station where thousands of tourists arrive every day. Most people don't know they exist. The ones who do are a small community of marine biologists and volunteer monitors.
+
+The gap isn't awareness campaigns or signage. It's that there's no bridge between a tourist's idle curiosity and meaningful action. You can't protect what you've never experienced.
+
+## The Team
+
+I worked with **Yun Jing** and **JJ**. Between the three of us we covered design, development, and the conservation narrative. The constraint was simple: build something presentable in a single day.
+
+## What We Built
+
+**SeaGrass Guide** is a mobile-first progressive web app that walks users through three stages — Discover, Learn, Act — designed around the psychology of moving someone from passive interest to active participation.
+
+### Discover
+
+A full-screen map centered on the user's real GPS position, showing seagrass meadow locations across Singapore's southern islands. Each site shows live data: real-time weather from Open-Meteo, tidal windows from NParks data, species counts, and citizen science observation tallies pulled from iNaturalist. The map answers the first question any curious visitor asks: *"Where is this, and can I go now?"*
+
+The proximity detection is real — standing on the OceanXplorer at Keppel Bay, the app correctly showed Sentosa's Siloso meadow as \~800m south and Labrador Nature Reserve as \~1.2km northeast.
+
+### Learn
+
+This is the core of the experience. We built a simulated XR walkthrough of the Sentosa Fort Siloso seagrass shore. A narrated tour plays while a mini-map tracks your position along the coastal trail from Siloso Point down to the Tanjung Rimau rocky shore. As the route progresses, geo-triggered educational plaques animate in — frosted glass cards that teach you about each zone without cluttering the experience.
+
+Eventually, we envision the narration to be triggered by geo-location too, with the AR interface highlighting areas where the user is actually looking at to provide contextualized facts.
+
+Seven zones. Seven stories. You learn what seagrass actually is (not seaweed — true flowering plants), discover that Tape seagrass leaves can reach 1.5 metres, find out that seagrass captures carbon up to 35× faster than tropical rainforests per unit area, and hear how clumps of seagrass survived the Resorts World Sentosa reclamation when researchers feared they'd been wiped out.
+
+The plaque design draws on my game design background — treating each zone like a level with its own narrative beat. The pacing matters: you start with wonder ("Welcome to Sentosa — 19 million visitors a year and a secret beneath their feet"), build through science and threat, and land on a call to action ("The meadow beneath Fort Siloso doesn't need a fort — it needs you").
+
+### Act
+
+By the time users reach the Act screen, they've spent some time walking along the coast, learning about an ecosystem they didn't know existed. Now the app gives them ways to do something about it: log a sighting using the phone's camera with automatic GPS tagging (mocked submission to SeagrassSpotter), donate to seagrass restoration, sign up for a TeamSeagrass volunteer monitoring session, or share a "Seagrass Explorer" badge.
+
+The conversion flow is deliberate. We don't open with "please donate." We earned the ask by making you care first.
+
+## How We Built It
+
+The entire app was built in a single day using **Claude Code** as the primary development tool. The stack:
+
+* **React 18 + Vite** for the frontend
+* **Tailwind CSS** for styling
+* **Leaflet + OpenStreetMap** for maps (zero API keys)
+* **Framer Motion** for plaque animations
+* **Browser Geolocation API** for real GPS
+* **Open-Meteo** for live weather and marine conditions
+* **NParks tide data** for tidal predictions
+* **iNaturalist API** for citizen science observation counts
+* Deployed on **Netlify** with a custom subdomain
+
+Claude was the force multiplier. I wrote the PRD and tech specs — screen layouts, data structures, API endpoints, design direction — and used Claude to scaffold the entire app, iterate on the XR plaque system, wire up the live APIs, and debug cross-browser issues (iOS Safari autoplay policies, camera permissions). Fifteen commits from first scaffold to production deploy, all in one session.
+
+This is the fastest I've ever gone from concept to working product. The CLAUDE.md file became the single source of truth — part brief, part architecture doc, part prompt. For a hackathon where hours matter, it was the difference between presenting a polished prototype and presenting slides.
+
+## The Result
+
+We didn't win. But the judges told us privately that deliberation ran long because some of them were fighting for our project to take first place. Being told you were a contested second — that the room was divided — felt like its own kind of validation. The gap between "almost won" and "won" is often just one judge's preference, and the feedback confirmed that the core concept landed.
+
+To me, winning was honestly not a priority and i have to say this was the most chill hackathon or gamejam i have ever taken part in.
+
+## What I Took Away
+
+**Seagrass changed how I see Singapore's coastline.** I've lived here most of my life and had no idea there were seagrass meadows at Sentosa, let alone that they survived coastal reclamation. The stat that stuck with me: seagrass covers just 0.1% of the ocean floor but accounts for up to 18% of all carbon buried in ocean sediments. I'll be visiting Chek Jawa, the most biodiverse seagrass site in Singapore with 8 species, very very soon.
+
+**Claude redefines hackathon velocity.** Writing a detailed spec upfront and letting Claude build it for you against it is a fundamentally different workflow from traditional hackathon coding. The spec-first approach means you spend your creative energy on *what to build and why*, not on wiring up boilerplate. For a time-boxed event, that reallocation is everything.
+
+**Game design thinking applies everywhere.** The Discover → Learn → Act flow is a player journey. The geo-triggered plaques are a level progression system. The pacing from wonder to knowledge to threat to agency is narrative design. My training at DigiPen keeps showing up in unexpected places.
+
+## Try It
+
+The app is live at [oceanx.clementlsw.com](https://oceanx.clementlsw.com) and the source is on [GitHub](https://github.com/ClementLSW/oceanx-demo). Best experienced on mobile — it uses your real GPS, so if you're near Sentosa, the proximity detection will light up.
