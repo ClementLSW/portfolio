@@ -1,0 +1,89 @@
+---
+title: FedUp
+description: A local multiplayer game where you compete against the clock (and
+  your friends) to fill up the truck with your parcels.
+date: 2026-04-17T16:00:00.000+08:00
+status: prototype
+featured: true
+tags:
+  - Unity
+  - Gamejam
+  - CenturyGames
+  - SIT
+event: SIT x Century Games Jam 2026
+team:
+  - '"Yun Jing"'
+  - '"RadiantCarrot"'
+  - '"JJ"'
+role: Systems Designer, Lead Programmer, Project Manager
+coverImage: /images/projects/title.jpg
+links:
+  itch: https://4ngrypanda.itch.io/fedup
+draft: false
+---
+## The Pitch
+ 
+**Tetris meets Overcooked — in a delivery truck.**
+ 
+Four players share one truck. One grid. Sixty seconds. Grab parcels from your conveyor belt, rotate them, and slam them into the cargo grid before the timer runs out. Everyone benefits from a full truck, but your score depends on how much of it is yours. Pack smart. Pack fast. Pack more than your friends.
+ 
+## Current Status
+ 
+🏆 **1st Place** — SIT x Century Games Game Jam 2026 (Theme: Puzzle)
+ 
+### Controls
+- **Left Stick** to move cursor
+- **A** to pick up and place parcels
+- **Left/Right Bumpers** to rotate parcels
+- **B** to drop parcel back on belt
+### What's Good
+- The coopetitive tension actually works — you're collaborating and competing at the same time without it feeling forced
+- Ghost previews for all four players on the shared grid make the chaos readable
+- Hand-drawn parcel sprites tinted per player keep ownership clear at a glance
+- Camera shake on placement is *chef's kiss*
+## Devlog
+ 
+This project started from a conversation about what "puzzle" could mean in a multiplayer context. Most puzzle games are solitary. We wanted to make a puzzle that was inherently social — where the puzzle itself changes because other people are solving it at the same time.
+ 
+The Tetris-in-a-truck concept came together fast. The GDD was committed on night one, and having that document meant we barely had to debate implementation during the build week.
+ 
+### The Scoring System
+ 
+This is where the design gets interesting. Each round, all four players pack into the same grid. At the end:
+ 
+1. A **base score** is set for the round
+2. An **emptiness penalty** kicks in if the truck is too empty (with a 10% buffer — we're not monsters)
+3. The adjusted score is then **split proportionally** based on how many cells each player filled
+So filling the truck benefits everyone, but hogging grid space benefits you specifically. That tension between collective and individual interest is the entire game.
+ 
+### Blocked Cells
+ 
+To keep rounds from feeling same-y, each truck spawns with randomly blocked cells from a pool of pre-designed templates. This forces players to adapt their placement strategy every round and makes big pieces riskier — you can't just memorize a packing pattern.
+ 
+### What I'd Do Differently
+ 
+The early dispatch system (all four players hold a button to send the truck early for a bonus) didn't make it into the final build. It was designed, specced, and scoped — but when crunch hit, we prioritised grid feel and scoring correctness over a feature that needed all four players to coordinate. Right call for the jam. Would love to add it post-jam.
+ 
+## Design Goals
+ 
+1. **Collaborative-competitive by default** — Shared grid, individual scores. No mode toggle needed.
+2. **Readable chaos** — Four cursors, four ghost previews, one grid. Every piece of visual feedback had to disambiguate ownership instantly.
+3. **Every player counts** — The 3-choice conveyor belt and colour-ratio scoring meant no one could be a passenger.
+## Tech
+ 
+- Unity 2D (URP)
+- Unity Input System (4 simultaneous gamepads + keyboard fallback)
+- Custom grid state management with queued placement to prevent race conditions
+- ScriptableObject-driven parcel shapes and truck templates
+- Greyscale parcel sprites tinted per-player in engine
+## What I Learned
+ 
+**A good GDD pays for itself in a jam.** We spent the first night writing a proper design document instead of coding. In the past, we would have jumped straight into  prototyping by hour two. We didn't write a line of code until day two. We won. The doc eliminated almost every "but how should this work?" conversation during the build.
+ 
+**Co-opetition is hard to balance but easy to feel.** The scoring system went through three iterations in the GDD alone before we even tested it. The final version — emptiness penalty with buffer, then proportional split — created exactly the right amount of "I want to help but also I want to win" energy during playtests.
+ 
+**Game jams with the same team hit different.** This was the third jam with Yun Jing and JJ (after GGJ 2025 and OceanX). Kar Lonng was not exactly new to the team and either. There's something about a crew that already knows each other's working rhythms — less negotiation, more building.
+ 
+---
+ 
+*Made in 7 days. First place felt pretty good.*
