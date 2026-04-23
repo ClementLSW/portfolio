@@ -1,0 +1,31 @@
+# Clement Leow
+
+> Game designer and aspiring studio founder based in Singapore. Creating experiences through the power of play, and documenting the journey through devlogs and project showcases.
+
+## About
+
+Clement Leow is a game designer working toward starting his own studio focused on narrative-driven interactive experiences. He graduated from DigiPen Singapore with a Bachelor's in User Experience and Game Design, interned at Ubisoft Singapore on Assassin's Creed Odyssey, and served as a Cyber Security Specialist with the Singapore Armed Forces. He currently works as a Product Manager at Workato while building his portfolio through game jams and personal projects.
+
+Recent highlights include winning 1st place at the SIT x Century Games Jam 2026 with FedUp (a local-multiplayer co-opetitive Tetris-in-a-truck game) and building Seagrass Guide, a conservation PWA, aboard the OceanXplorer at the OceanX Education Hackathon.
+
+## Looking for
+
+- Collaborators for game jams and side projects
+- Producer / designer roles at studios working on interesting projects
+- Conversations about games, design, and the industry
+
+## Content
+
+- [Blog](https://clementlsw.com/blog): Devlogs, learnings, and thoughts on game design and development
+- [Projects](https://clementlsw.com/projects): Games and interactive prototypes, with devlogs for each
+- [About](https://clementlsw.com/about): Background, education, and what Clement is looking for
+- [Now](https://clementlsw.com/now): What Clement is currently working on
+- [RSS feed](https://clementlsw.com/rss.xml)
+- [Sitemap](https://clementlsw.com/sitemap-index.xml)
+
+## Contact
+
+- GitHub: https://github.com/ClementLSW
+- LinkedIn: https://linkedin.com/in/clement-leow-04b744151
+- itch.io: https://4ngrypanda.itch.io
+- Email: Clementlsw@gmail.com
